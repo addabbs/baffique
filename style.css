@@ -1,0 +1,145 @@
+:root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --accent-color: #ffffff;
+    --overlay-bg: rgba(0, 0, 0, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: var(--text-color);
+    font-family: 'Cormorant Garamond', serif;
+    overflow: hidden; /* Hide scrollbars */
+    width: 100vw;
+    height: 100vh;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: block;
+    background: linear-gradient(to bottom, #111, #333); /* Basic world gradient */
+}
+
+/* Atmospheric effects */
+#game-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7) 100%);
+    box-shadow: inset 0 0 150px rgba(0,0,0,0.9);
+}
+
+/* UI Elements */
+#ui-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+#stats {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    pointer-events: auto;
+}
+
+#scroll-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--overlay-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.scroll-content {
+    background: #222;
+    padding: 40px;
+    border: 1px solid #444;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 0 50px rgba(255,255,255,0.05);
+}
+
+.scroll-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.scroll-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+button {
+    background: transparent;
+    border: 1px solid #666;
+    color: #fff;
+    padding: 10px 25px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Start Screen */
+#start-screen {
+    position: absolute;
+    z-index: 20;
+    text-align: center;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-screen h1 {
+    font-size: 5rem;
+    letter-spacing: 15px;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.hidden {
+    display: none !important;
+}
